@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.pertemuan9_pam.ui.theme.Pertemuan9_PAMTheme
+import com.example.pertemuan9_pam.view.uicontroller.SiswaApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +21,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             Pertemuan9_PAMTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+					SiswaApp(
+						modifier = Modifier.padding(innerPadding)
+					)
                 }
             }
         }
