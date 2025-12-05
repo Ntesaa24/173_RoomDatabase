@@ -15,33 +15,33 @@ import com.example.pertemuan9_pam.ui.theme.Pertemuan9_PAMTheme
 import com.example.pertemuan9_pam.view.uicontroller.SiswaApp
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Pertemuan9_PAMTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		enableEdgeToEdge()
+		setContent {
+			Pertemuan9_PAMTheme {
+				Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 					SiswaApp(
 						modifier = Modifier.padding(innerPadding)
 					)
-                }
-            }
-        }
-    }
+				}
+			}
+		}
+	}
 }
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+	Text(
+		text = "Hello $name!",
+		modifier = modifier
+	)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Pertemuan9_PAMTheme {
-        Greeting("Android")
-    }
+	Pertemuan9_PAMTheme {
+		Greeting("Android")
+	}
 }
