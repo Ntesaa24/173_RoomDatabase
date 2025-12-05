@@ -1,5 +1,6 @@
 package com.example.pertemuan9_pam.view
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,8 +43,10 @@ import com.example.pertemuan9_pam.viewmodel.provider.PenyediaViewModel
 @Composable
 fun HomeScreen(
 	navigateToItemEntry: () -> Unit,
+	//edit 5
+	navigateToItemUpdate: (Int) -> Unit,
 	modifier: Modifier = Modifier,
-	viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
+	viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory),
 ){
 	val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 	Scaffold (
@@ -72,6 +75,8 @@ fun HomeScreen(
 		val uiStateSiswa by viewModel.homeUiState.collectAsState()
 		BodyHome(
 			itemSiswa = uiStateSiswa.listSiswa,
+			//edit 6
+			onSiswaClick = navigateToItemUpdate,
 			modifier = Modifier
 				.padding(innerPadding)
 				.fillMaxSize()
@@ -81,6 +86,8 @@ fun HomeScreen(
 
 @Composable
 fun BodyHome(itemSiswa: List<Siswa>,
+			 //edit 3
+			 onSiswaClick: (Int) -> Unit,
 			 modifier: Modifier = Modifier
 ) {
 	Column (
@@ -96,6 +103,8 @@ fun BodyHome(itemSiswa: List<Siswa>,
 		} else {
 			ListSiswa(
 				itemSiswa = itemSiswa,
+				//edit 4
+				onSiswaClick = {onSiswaClick(it.id)},
 				modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
 			)
 		}
@@ -104,14 +113,17 @@ fun BodyHome(itemSiswa: List<Siswa>,
 
 @Composable
 fun ListSiswa(itemSiswa: List<Siswa>,
-			  modifier: Modifier= Modifier
+			  //edit 1 : tambahkan parameter onSiswaClick
+			  onSiswaClick: (Siswa) -> Unit,
+			  modifier: Modifier = Modifier
 ) {
 	LazyColumn (modifier = Modifier) {
 		items(items = itemSiswa, key = {it.id}){
 			person -> Datasiswa(
 				siswa = person,
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_small)))
+					.padding(dimensionResource(id = R.dimen.padding_small))
+					.clickable {onSiswaClick(person)})
 
 	}
 }
