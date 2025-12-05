@@ -9,11 +9,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.pertemuan9_pam.DetailSiswaScreen
+import com.example.pertemuan9_pam.view.DetailSiswaScreen
+import com.example.pertemuan9_pam.view.EditSiswaScreen
 import com.example.pertemuan9_pam.view.EntrySiswaScreen
 import com.example.pertemuan9_pam.view.HomeScreen
 import com.example.pertemuan9_pam.view.route.DestinasiDetaillSiswa
 import com.example.pertemuan9_pam.view.route.DestinasiDetaillSiswa.itemIdArg
+import com.example.pertemuan9_pam.view.route.DestinasiEditSiswa
 import com.example.pertemuan9_pam.view.route.DestinasiEntry
 import com.example.pertemuan9_pam.view.route.DestinasiHome
 
